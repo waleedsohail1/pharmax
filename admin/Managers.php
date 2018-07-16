@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+require("../conn.php");
+$sql = "SELECT * FROM login inner join managers on login.username=managers.username";
+$result = $mysqli->query($sql);
+
+?>
 <html>
 
 <head>
@@ -24,61 +30,45 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini"> CT </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal"> Creative Tim </a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-mini"> PX </a>
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal"> PharmaX </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
             <a href="./dashboard.html">
               <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <p>Overview</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+            <a href="./ExpenseSheet.html">
+              <i class="now-ui-icons design_app"></i>
+              <p>Expense Sheet</p>
             </a>
           </li>
           <li class="active ">
-            <a href="./tables.html">
+            <a href="./Managers.html">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>MaNAGERS
-                <br>
-              </p>
+              <p>MANAGERS
+                <br> </p>
             </a>
-          </li>
+          </li> 
           <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+            <a href="./SPOs.html">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>SPOs
+                <br> </p>
             </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
+          </li> 
+          <li>
+            <a href="./LocateSpo.html">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Locate SPO
+                <br> </p>
             </a>
-          </li>
+          </li> 
+         
         </ul>
       </div>
     </div>
@@ -156,11 +146,10 @@
                 <div class="row">
                   <div class="col-md-10">
                     <h1 class="">Managers
-                      <br>
-                    </h1>
+                      <br> </h1>
                   </div>
                   <div class="col-md-2 my-3">
-                    <a class="btn btn-primary" href="#">Button </a>
+                    <a class="btn text-uppercase text-center text-light btn-primary" href="addManager.php">Add Manager</a>
                   </div>
                 </div>
               </div>
@@ -169,25 +158,29 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <tr>
-                        <th class="border">ID</th>
-                        <th class="border">Name</th>
-                        <th class="border"> Age</th>
-                        <th class="border">Area</th>
-                        <th class="border">City</th>
-                        <th class="border">Edit</th>
-                        <th class="border">Delete</th>
+                        <th class="border text-center">Manager ID</th>
+                        <th class="border text-center">Name</th>
+                        <th class="border text-center">Age</th>
+                        <th class="border text-center">Area</th>
+                        <th class="border text-center">City</th>
+                        <th class="border text-center">Edit</th>
+                        <th class="border text-center">Delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td> Jon Porter </td>
-                        <td> Portugal </td>
-                        <td> Gloucester </td>
-                        <td class="text-right"> $98,615 </td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                        <td>Cell</td>
-                      </tr>
+
+                    <?php
+                     if ($result->num_rows > 0) {
+                      // output data of each row
+                      while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+
+                        echo  "<td class='text-center'>". $row["id"]."<td class='text-center'>". $row["name"]."<td class='text-center'>". $row["age"]."<td class='text-center'>". $row["area"]."<td class='text-center'>".$row["city"]. '<td class="text-center"><img src="../pix/pencil.png" width="25px"><td class="text-center"><a href="delete.php?uname='. $row["username"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
+                      }
+                    } else {
+                      echo "0 results";
+                    }
+                    ?>
                     </tbody>
                   </table>
                 </div>
@@ -236,9 +229,7 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
-  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:250px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;
-    <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
-  </pingendo>
+  
 </body>
 
 </html>
