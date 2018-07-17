@@ -2,16 +2,17 @@
 
 require("../conn.php");
   $Uname=$_GET["uname"];
-  echo $Uname;
-  $query="select * from login JOIN managers where username='".$Uname . "' AND login.username=managers.username .'";
- 
+  // echo $Uname;
+  $query="select * from login JOIN managers where login.username='".$Uname . "' AND login.username=managers.username ;";
+ echo $query;
   $result = $mysqli->query($query);
 
-  if ($result->num_rows > 0) {
-    // output data of each row
-  while($row = $result->fetch_assoc()) 
-  {
-    $UserName=$row["username"];
+  // if ($result->num_rows > 0) {
+  //   // output data of each row
+   while($row = $result->fetch_assoc()) 
+   {
+    // echo $row;
+    $UserNamenew=$row["username"];
     $Email=$row["email"];
     $Name=$row["name"];
     $HomeAddress=$row["HomeAddress"];
@@ -21,10 +22,12 @@ require("../conn.php");
     $CNIC=$row["cnic"];
     $Province=$row["province"];
     $CellNumber=$row["CellNumber"];
-  
-    echo $UserName;
-  }
-}
+  // echo ("Hello");
+    echo $UserNamenew;
+    echo $Email;
+    break;
+   }
+// }
 
 if(isset($_POST['submit'])) {
 
