@@ -1,6 +1,7 @@
 <?php 
 if(isset($_POST['submit'])) {
 
+  require("../conn.php");
   $UserName=$_POST["UserName"];
   $Email=$_POST["Email"];
   $Name=$_POST["FirstName"].' '.$_POST["LastName"];
@@ -14,7 +15,9 @@ if(isset($_POST['submit'])) {
   $query1='INSERT INTO login("username", "password", "type", "name", "email", "firsttime") VALUES('.$UserName.','.$UserName.',1,'.$Name.','.$Email.',1)';
   $query2='INSERT INTO managers ("username", "name", "age", "cnic", "CellNumber","HomeAddress", "area", "city", "province") 
   VALUES ('.$UserName.','.$Name.','.$Age.','.$CNIC.','.$CellNumber.','.$HomeAddress.','.$Area.','.$City.','.$Province.')'; 
-  echo $query2;
+  mysqli_query($mysqli,$query1);
+  mysqli_query($mysqli,$query2);
+  //header("Location:Managers.php");
 }
 ?>
 
