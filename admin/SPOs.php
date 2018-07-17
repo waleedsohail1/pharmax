@@ -24,48 +24,48 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini"> PX </a>
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal"> PharmaX </a>
-    </div>
-    <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li>
-          <a href="./dashboard.html">
-            <i class="now-ui-icons design_app"></i>
-            <p>Overview</p>
-          </a>
-        </li>
-        <li>
-          <a href="./ExpenseSheet.html">
-            <i class="now-ui-icons design_app"></i>
-            <p>Expense Sheet</p>
-          </a>
-        </li>
-        <li >
-          <a href="./Managers.html">
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>MANAGERS
-              <br> </p>
-          </a>
-        </li> 
-        <li class="active ">
-          <a href="./SPOs.html">
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>SPOs
-              <br> </p>
-          </a>
-        </li> 
-        <li>
-          <a href="./LocateSpo.html">
-            <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Locate SPO
-              <br> </p>
-          </a>
-        </li> 
-       
-      </ul>
-    </div>
+    <a href="http://www.creative-tim.com" class="simple-text logo-mini"> PX </a>
+    <a href="http://www.creative-tim.com" class="simple-text logo-normal"> PharmaX </a>
   </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li>
+        <a href="./Overview.php">
+          <i class="now-ui-icons design_app"></i>
+          <p>Overview</p>
+        </a>
+      </li>
+      <li>
+        <a href="./ExpenseSheet.html">
+          <i class="now-ui-icons design_app"></i>
+          <p>Expense Sheet</p>
+        </a>
+      </li>
+      <li>
+        <a href="./Managers.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>MANAGERS
+            <br> </p>
+        </a>
+      </li> 
+      <li  class="active ">
+        <a href="./SPOs.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>SPOs
+            <br> </p>
+        </a>
+      </li> 
+      <li>
+        <a href="./LocateSpo.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>Locate SPO
+            <br> </p>
+        </a>
+      </li> 
+     
+    </ul>
+  </div>
+</div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
