@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+require("../conn.php");
+$sql = "SELECT * FROM spo";
+$result = $mysqli->query($sql);
+
+?>
 <html>
 
 <head>
@@ -162,15 +168,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td class="text-center"> Jon Porter </td>
-                        <td class="text-center"> Portugal </td>
-                        <td class="text-center"> Gloucester </td>
-                        <td class="text-center"> $98,615 </td>
-                        <td>Cell</td>
-                        <td class="text-center"><img src="../pix/pencil.png" width="25px"></td>
-                        <td class="text-center"><img src="../pix/trash.png" width="25px"></td>
-                      </tr>
+
+                    <?php
+                     if ($result->num_rows > 0) {
+                      // output data of each row
+                      while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+
+                        echo  "<td class='text-center'>". $row["SPOID"]."<td class='text-center'>". $row["Name"]."<td class='text-center'>". $row["Age"]."<td class='text-center'>". $row["Area"]."<td class='text-center'>".$row["City"]. '<td class="text-center"><img src="../pix/pencil.png" width="25px"><td class="text-center"><a href="deleteSPO.php?SPOID='. $row["SPOID"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
+                      }
+                    } else {
+                      echo "0 results";
+                    }
+                    ?>
                     </tbody>
                   </table>
                 </div>

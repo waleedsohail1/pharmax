@@ -175,7 +175,7 @@ $result = $mysqli->query($sql);
                       while($row = $result->fetch_assoc()) {
                         echo "<tr>";
 
-                        echo  "<td class='text-center'>". $row["id"]."<td class='text-center'>". $row["name"]."<td class='text-center'>". $row["age"]."<td class='text-center'>". $row["area"]."<td class='text-center'>".$row["city"]. '<td class="text-center"><img src="../pix/pencil.png" width="25px"><td class="text-center"><a href="delete.php?uname='. $row["username"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
+                        echo  "<td class='text-center'>". $row["id"]."<td class='text-center'>". $row["name"]."<td class='text-center'>". $row["age"]."<td class='text-center'>". $row["area"]."<td class='text-center'>".$row["city"]. '<td class="text-center"><img src="../pix/pencil.png" width="25px"><td class="text-center"><a href="deleteManager.php?uname='. $row["username"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
                       }
                     } else {
                       echo "0 results";
