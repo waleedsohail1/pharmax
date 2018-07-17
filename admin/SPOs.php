@@ -149,7 +149,7 @@ $result = $mysqli->query($sql);
                       <br> </h1>
                   </div>
                   <div class="col-md-2 my-3">
-                    <a class="btn text-uppercase text-center text-light btn-primary" href="#">Add SPO</a>
+                    <a class="btn text-uppercase text-center text-light btn-primary" href="ADDSPO.php">Add SPO</a>
                   </div>
                 </div>
               </div>
