@@ -1,12 +1,37 @@
-
-
-
 <?php 
+require("../conn.php");
+
+$SPOID=$_GET["SPOID"];
+echo $SPOID;
+$query="select * from spo where SPOID='".$SPOID ."'";
+
+$result = $mysqli->query($query);
+
+//if ($result->num_rows > 0) {
+  // output data of each row
+while($row = $result->fetch_assoc()) 
+{
+  $UserName=$row["SPOusername"];
+  //$Email=$row["Email"];
+  $Name=$row["Name"];
+  $HomeAddress=$row["HomeAddress"];
+  $City=$row["City"];
+  $Area=$row["Area"];
+  $Age=$row["Age"];
+  $CNIC=$row["CNIC"];
+  $Province=$row["Province"];
+  $CellNumber=$row["CellNumber"];
+break;
+//   echo $query;
+}
+
+
+
 if(isset($_POST['submit'])) {
 
   require("../conn.php");
   $UserName=$_POST["UserName"];
-  $Email=$_POST["Email"];
+  //$Email=$_POST["Email"];
   $Name=$_POST["FirstName"].' '.$_POST["LastName"];
   $HomeAddress=$_POST["HomeAddress"];
   $City=$_POST["City"];
@@ -16,10 +41,10 @@ if(isset($_POST['submit'])) {
   $Province=$_POST["Province"];
   $CellNumber=$_POST["CellNumber"];
   //$query1='INSERT INTO login("username", "password", "type", "name", "email", "firsttime") VALUES('.$UserName.','.$UserName.',1,'.$Name.','.$Email.',1)';
-  $query='INSERT INTO spo (SPOusername, Name, Age, CNIC, CellNumber,HomeAddress, Area, City, Province) 
-  VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
+ // $query='INSERT INTO spo (SPOusername, Name, Age, CNIC, CellNumber,HomeAddress, Area, City, Province) 
+  //VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
   //mysqli_query($mysqli,$query1);
-  $mysqli->query($query);
+//    $mysqli->query($query);
   header("Location:SPOs.php");
 }
 ?>
@@ -184,7 +209,7 @@ if(isset($_POST['submit'])) {
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="title">Add Sales Purchase Officer</h5>
+                <h5 class="title">Edit Sales Purchase Officer</h5>
               </div>
               <div class="card-body">
                 <form action="" method="POST">
@@ -192,13 +217,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" >
+                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" value ="<?php echo $UserName  ?> " disabled >
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email" id="Email" name="Email">
+                        <input type="email" class="form-control" placeholder="Email" id="Email" name="Email" >
                       </div>
                     </div>
                   </div>
@@ -206,7 +231,7 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="FirstName" name="FirstName">
+                        <input type="text" class="form-control" placeholder="First Name" id="FirstName" name="FirstName ">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
@@ -267,7 +292,7 @@ if(isset($_POST['submit'])) {
 </div>              <div class="col-md-2 px-1">
 
                       <div class="form-group">
-                        <input type="submit" id="submit" name="submit" class="btn-primary" value="Add SPO">
+                        <input type="submit" id="submit" name="submit" class="btn-primary" value="Edit SPO">
                       </div>
                     </div>
   <!--   Core JS Files   -->
