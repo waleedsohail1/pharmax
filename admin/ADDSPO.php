@@ -13,11 +13,11 @@ if(isset($_POST['submit'])) {
   $Province=$_POST["Province"];
   $CellNumber=$_POST["CellNumber"];
   //$query1='INSERT INTO login("username", "password", "type", "name", "email", "firsttime") VALUES('.$UserName.','.$UserName.',1,'.$Name.','.$Email.',1)';
-  //$query2='INSERT INTO managers ("username", "name", "age", "cnic", "CellNumber","HomeAddress", "area", "city", "province") 
-  //VALUES ('.$UserName.','.$Name.','.$Age.','.$CNIC.','.$CellNumber.','.$HomeAddress.','.$Area.','.$City.','.$Province.')'; 
+  $query='INSERT INTO spo (SPOusername, Name, Age, CNIC, CellNumber,HomeAddress, Area, City, Province) 
+  VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
   //mysqli_query($mysqli,$query1);
-  //mysqli_query($mysqli,$query2);
-  //header("Location:Managers.php");
+  $mysqli->query($query);
+  header("Location:SPOs.php");
 }
 ?>
 
@@ -264,7 +264,7 @@ if(isset($_POST['submit'])) {
 </div>              <div class="col-md-2 px-1">
 
                       <div class="form-group">
-                        <input type="submit" id="submit" name="submit" class="btn-primary" value="Add Manager">
+                        <input type="submit" id="submit" name="submit" class="btn-primary" value="Add SPO">
                       </div>
                     </div>
   <!--   Core JS Files   -->
