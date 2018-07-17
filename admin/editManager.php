@@ -31,9 +31,9 @@ require("../conn.php");
 
 if(isset($_POST['submit'])) {
 
-  $UserName=$_POST["UserName"];
+  // $UserName=$_POST["UserName"];
   $Email=$_POST["Email"];
-  $Name=$_POST["FirstName"].' '.$_POST["LastName"];
+  $Name=$_POST["Name"];
   $HomeAddress=$_POST["HomeAddress"];
   $City=$_POST["City"];
   $Area=$_POST["Area"];
@@ -41,14 +41,17 @@ if(isset($_POST['submit'])) {
   $CNIC=$_POST["CNIC"];
   $Province=$_POST["Province"];
   $CellNumber=$_POST["CellNumber"];
-  $query1='INSERT INTO login(username, password, type, name, email, firsttime) VALUES("'.$UserName.'","'.$UserName.'","1","'.$Name.'","'.$Email.'","1");';
-  $query2='INSERT INTO managers (username, name, age, cnic, CellNumber, HomeAddress, area, city, province) 
-  VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
-  echo $query1;
-  echo $query2;
-  $mysqli->query($query1);
-  $mysqli->query($query2);
-  header("Location:Managers.php");
+  // $query1='INSERT INTO login(username, password, type, name, email, firsttime) VALUES("'.$UserName.'","'.$UserName.'","1","'.$Name.'","'.$Email.'","1");';
+  // $query2='INSERT INTO managers (username, name, age, cnic, CellNumber, HomeAddress, area, city, province) 
+  // VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
+echo  $query1="UPDATE login SET name='".$Name."',age='".$Age."',cnic='".$CNIC."',CellNumber='".$CellNumber."',HomeAddress='".$HomeAddress."',area='".$Area."',city='".$City."',province='".$Province." WHERE username='".$Uname."';"; 
+  
+  
+  // echo $query1;
+  // echo $query2;
+  // $mysqli->query($query1);
+  // $mysqli->query($query2);
+  //header("Location:Managers.php");
 }
 ?>
 
@@ -202,7 +205,7 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" value="<?php echo $UserName;?>" disabled >
+                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" value="<?php echo $Uname;?>" disabled >
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
