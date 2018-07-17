@@ -36,7 +36,7 @@ $result = $mysqli->query($sql);
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="./dashboard.html">
+            <a href="./Overview.php">
               <i class="now-ui-icons design_app"></i>
               <p>Overview</p>
             </a>
@@ -48,21 +48,21 @@ $result = $mysqli->query($sql);
             </a>
           </li>
           <li class="active ">
-            <a href="./Managers.html">
+            <a href="./Managers.php">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>MANAGERS
                 <br> </p>
             </a>
           </li> 
           <li>
-            <a href="./SPOs.html">
+            <a href="./SPOs.php">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>SPOs
                 <br> </p>
             </a>
           </li> 
           <li>
-            <a href="./LocateSpo.html">
+            <a href="./LocateSpo.php">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Locate SPO
                 <br> </p>

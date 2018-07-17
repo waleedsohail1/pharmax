@@ -12,12 +12,14 @@ if(isset($_POST['submit'])) {
   $CNIC=$_POST["CNIC"];
   $Province=$_POST["Province"];
   $CellNumber=$_POST["CellNumber"];
-  $query1='INSERT INTO login("username", "password", "type", "name", "email", "firsttime") VALUES('.$UserName.','.$UserName.',1,'.$Name.','.$Email.',1)';
-  $query2='INSERT INTO managers ("username", "name", "age", "cnic", "CellNumber","HomeAddress", "area", "city", "province") 
-  VALUES ('.$UserName.','.$Name.','.$Age.','.$CNIC.','.$CellNumber.','.$HomeAddress.','.$Area.','.$City.','.$Province.')'; 
-  mysqli_query($mysqli,$query1);
-  mysqli_query($mysqli,$query2);
-  //header("Location:Managers.php");
+  $query1='INSERT INTO login(username, password, type, name, email, firsttime) VALUES("'.$UserName.'","'.$UserName.'","1","'.$Name.'","'.$Email.'","1");';
+  $query2='INSERT INTO managers (username, name, age, cnic, CellNumber, HomeAddress, area, city, province) 
+  VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
+  echo $query1;
+  echo $query2;
+  $mysqli->query($query1);
+  $mysqli->query($query2);
+  header("Location:Managers.php");
 }
 ?>
 
@@ -48,67 +50,49 @@ if(isset($_POST['submit'])) {
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CT
+    <div class="logo">
+    <a href="http://www.creative-tim.com" class="simple-text logo-mini"> PX </a>
+    <a href="http://www.creative-tim.com" class="simple-text logo-normal"> PharmaX </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li>
+        <a href="./Overview.php">
+          <i class="now-ui-icons design_app"></i>
+          <p>Overview</p>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+      </li>
+      <li>
+        <a href="./ExpenseSheet.html">
+          <i class="now-ui-icons design_app"></i>
+          <p>Expense Sheet</p>
         </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="./icons.html">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li>
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+      </li>
+      <li class="active ">
+        <a href="./Managers.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>MANAGERS
+            <br> </p>
+        </a>
+      </li> 
+      <li>
+        <a href="./SPOs.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>SPOs
+            <br> </p>
+        </a>
+      </li> 
+      <li>
+        <a href="./LocateSpo.php">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>Locate SPO
+            <br> </p>
+        </a>
+      </li> 
+     
+    </ul>
+  </div>
+</div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
