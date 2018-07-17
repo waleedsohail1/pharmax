@@ -175,7 +175,7 @@ $result = $mysqli->query($sql);
                       while($row = $result->fetch_assoc()) {
                         echo "<tr>";
 
-                        echo  "<td class='text-center'>". $row["SPOID"]."<td class='text-center'>". $row["Name"]."<td class='text-center'>". $row["Age"]."<td class='text-center'>". $row["Area"]."<td class='text-center'>".$row["City"]. '<td class="text-center"><img src="../pix/pencil.png" width="25px"><td class="text-center"><a href="deleteSPO.php?SPOID='. $row["SPOID"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
+                        echo  "<td class='text-center'>". $row["SPOID"]."<td class='text-center'>". $row["Name"]."<td class='text-center'>". $row["Age"]."<td class='text-center'>". $row["Area"]."<td class='text-center'>".$row["City"]. '<td class="text-center"><a href="EditSPO.php?SPOID='. $row["SPOID"].'"><img src="../pix/pencil.png" width="25px"></a><td class="text-center"><a href="deleteSPO.php?SPOID='. $row["SPOID"].'"><img src="../pix/trash.png" width="25px"></a></td>'. "</tr>";
                       }
                     } else {
                       echo "0 results";
