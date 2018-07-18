@@ -13,7 +13,7 @@ while($row = $result->fetch_assoc())
 {
   $UserName=$row["SPOusername"];
   //$Email=$row["Email"];
-  $Name=$row["Name"];
+  $Name=$row["SPOName"];
   $HomeAddress=$row["HomeAddress"];
   $City=$row["City"];
   $Area=$row["Area"];
@@ -21,8 +21,8 @@ while($row = $result->fetch_assoc())
   $CNIC=$row["CNIC"];
   $Province=$row["Province"];
   $CellNumber=$row["CellNumber"];
-break;
-//   echo $query;
+    break;
+
 }
 
 
@@ -30,22 +30,32 @@ break;
 if(isset($_POST['submit'])) {
 
   require("../conn.php");
-  $UserName=$_POST["UserName"];
+//   $UserName=$_POST["SPOUsername"];
   //$Email=$_POST["Email"];
-  $Name=$_POST["FirstName"].' '.$_POST["LastName"];
-  $HomeAddress=$_POST["HomeAddress"];
-  $City=$_POST["City"];
-  $Area=$_POST["Area"];
-  $Age=$_POST["Age"];
-  $CNIC=$_POST["CNIC"];
-  $Province=$_POST["Province"];
-  $CellNumber=$_POST["CellNumber"];
+    $TableName=$_POST["SPOName"];
+    $HomeAddress=$_POST["HomeAddress"];
+    $City=$_POST["City"];
+    $Area=$_POST["Area"];
+    $Age=$_POST["Age"];
+    $CNIC=$_POST["CNIC"];
+    $Province=$_POST["Province"];
+    $CellNumber=$_POST["CellNumber"];
   //$query1='INSERT INTO login("username", "password", "type", "name", "email", "firsttime") VALUES('.$UserName.','.$UserName.',1,'.$Name.','.$Email.',1)';
  // $query='INSERT INTO spo (SPOusername, Name, Age, CNIC, CellNumber,HomeAddress, Area, City, Province) 
   //VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
   //mysqli_query($mysqli,$query1);
 //    $mysqli->query($query);
-  header("Location:SPOs.php");
+    $query1=' UPDATE spo SET SPOName="'.$TableName.'",Age="'.$Age.'",CNIC="'.$CNIC.'",CellNumber="'.$CellNumber.'",HomeAddress="'.$HomeAddress.'",Area="'.$Area.'",City="'.$City.'",Province="'.$Province.'" WHERE SPOID="'.$SPOID.'";';
+    // echo $query1;
+    if($mysqli->query($query1))
+    {
+        header("Location:SPOs.php");  
+        // break;
+    }
+    else 
+    echo "Error: " .  "<br>" . $mysqli->error;
+        
+    //
 }
 ?>
 
@@ -228,16 +238,10 @@ if(isset($_POST['submit'])) {
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 pr-1">
+                    <div class="col-md-12 pr-2">
                       <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="FirstName" name="FirstName ">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="LastName" name="LastName">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Full Name" id="SPOName" name="SPOName" value ="<?php echo $Name ?> ">
                       </div>
                     </div>
                   </div>
@@ -245,13 +249,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Age</label>
-                        <input type="Number" class="form-control" placeholder="Age" id="Age" name="Age">
+                        <input type="Number" class="form-control" placeholder="Age" id="Age" name="Age"value ="<?php echo $Age?>">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Cell Number</label>
-                        <input type="text" class="form-control" placeholder="CellNumber" id="CellNumber" name="CellNumber">
+                        <input type="text" class="form-control" placeholder="CellNumber" id="CellNumber" name="CellNumber"value ="<?php echo $CellNumber?>">
                       </div>
                     </div>
                   </div>
@@ -259,13 +263,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text " class="form-control" placeholder="Home Address" id="HomeAddress" name="HomeAddress">
+                        <input type="text " class="form-control" placeholder="Home Address" id="HomeAddress" name="HomeAddress"value ="<?php echo $HomeAddress?>">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Province</label>
-                        <input type="text" class="form-control" placeholder="Province" id="Province" name="Province">
+                        <input type="text" class="form-control" placeholder="Province" id="Province" name="Province"value ="<?php echo $Province?>">
                       </div>
                     </div>
                   </div>
@@ -273,19 +277,19 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Area</label>
-                        <input type="text" class="form-control" placeholder="Area" id="Area" name="Area">
+                        <input type="text" class="form-control" placeholder="Area" id="Area" name="Area"value ="<?php echo $Area?>">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" id="City" name="City">
+                        <input type="text" class="form-control" placeholder="City" id="City" name="City"value ="<?php echo $City?>">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>CNIC</label>
-                        <input type="text" class="form-control" placeholder="CNIC" id="CNIC" name="CNIC">
+                        <input type="text" class="form-control" placeholder="CNIC" id="CNIC" name="CNIC"value ="<?php echo $CNIC?>">
                       </div>
                     </div>
                     <div class="col-md-10 px-2">

@@ -192,13 +192,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" >
+                        <input type="text" class="form-control" placeholder="Username" id="UserName" name="UserName" required >
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" placeholder="Email" id="Email" name="Email">
+                        <input type="email" class="form-control" placeholder="Email" id="Email" name="Email" required >
                       </div>
                     </div>
                   </div>
@@ -206,13 +206,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="FirstName" name="FirstName">
+                        <input type="text" class="form-control" placeholder="First Name" id="FirstName" name="FirstName" required >
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="LastName" name="LastName">
+                         <input type="text" class="form-control" placeholder="Last Name" id="LastName" name="LastName" required >
                       </div>
                     </div>
                   </div>
@@ -220,13 +220,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Age</label>
-                        <input type="Number" class="form-control" placeholder="Age" id="Age" name="Age">
+                        <input type="Number" class="form-control" placeholder="Age" id="Age" name="Age" required >
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Cell Number</label>
-                        <input type="text" class="form-control" placeholder="CellNumber" id="CellNumber" name="CellNumber">
+                        <input type="text" class="form-control" placeholder="CellNumber" id="CellNumber" name="CellNumber" required >
                       </div>
                     </div>
                   </div>
@@ -234,13 +234,13 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-8">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text " class="form-control" placeholder="Home Address" id="HomeAddress" name="HomeAddress">
+                        <input type="text " class="form-control" placeholder="Home Address" id="HomeAddress" name="HomeAddress" required >
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Province</label>
-                        <input type="text" class="form-control" placeholder="Province" id="Province" name="Province">
+                        <input type="text" class="form-control" placeholder="Province" id="Province" name="Province" required>
                       </div>
                     </div>
                   </div>
@@ -248,19 +248,19 @@ if(isset($_POST['submit'])) {
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Area</label>
-                        <input type="text" class="form-control" placeholder="Area" id="Area" name="Area">
+                        <input type="text" class="form-control" placeholder="Area" id="Area" name="Area"required>
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" id="City" name="City">
+                        <input type="text" class="form-control" placeholder="City" id="City" name="City"required>
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>CNIC</label>
-                        <input type="text" class="form-control" placeholder="CNIC" id="CNIC" name="CNIC">
+                        <input type="text" class="form-control" placeholder="CNIC" id="CNIC" name="CNIC"required>
                       </div>
                     </div>
                     <div class="col-md-10 px-2">

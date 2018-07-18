@@ -4,7 +4,7 @@ require("../conn.php");
   $Uname=$_GET["uname"];
   // echo $Uname;
   $query="select * from login JOIN managers where login.username='".$Uname . "';";
- echo $query;
+  //echo $query;
   $result = $mysqli->query($query);
 
   // if ($result->num_rows > 0) {
@@ -14,7 +14,7 @@ require("../conn.php");
     // echo $row;
     $UserName=$row["username"];
     $Email=$row["email"];
-    $Name=$row["name"];
+    $Name=$row["Manname"];
     $HomeAddress=$row["HomeAddress"];
     $City=$row["city"];
     $Area=$row["area"];
@@ -33,25 +33,25 @@ if(isset($_POST['submit'])) {
 
   // $UserName=$_POST["UserName"];
   $Email=$_POST["Email"];
-  $Name=$_POST["Name"];
+  $Name=$_POST["name"];
   $HomeAddress=$_POST["HomeAddress"];
-  $City=$_POST["City"];
-  $Area=$_POST["Area"];
-  $Age=$_POST["Age"];
-  $CNIC=$_POST["CNIC"];
-  $Province=$_POST["Province"];
+  $City=$_POST["city"];
+  $Area=$_POST["area"];
+  $Age=$_POST["age"];
+  $CNIC=$_POST["cnic"];
+  $Province=$_POST["province"];
   $CellNumber=$_POST["CellNumber"];
   // $query1='INSERT INTO login(username, password, type, name, email, firsttime) VALUES("'.$UserName.'","'.$UserName.'","1","'.$Name.'","'.$Email.'","1");';
   // $query2='INSERT INTO managers (username, name, age, cnic, CellNumber, HomeAddress, area, city, province) 
   // VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
-echo  $query1="UPDATE login SET name='".$Name."',age='".$Age."',cnic='".$CNIC."',CellNumber='".$CellNumber."',HomeAddress='".$HomeAddress."',area='".$Area."',city='".$City."',province='".$Province." WHERE username='".$Uname."';"; 
-  
-  
+      $query1=' UPDATE managers SET Manname = "'.$Name.'",age="'.$Age.'",cnic="'.$CNIC.'",CellNumber="'.$CellNumber.'",HomeAddress="'.$HomeAddress.'",area="'.$Area.'",city="'.$City.'",province="'.$Province.'" WHERE username="'.$Uname.'";'; 
+      $mysqli->query($query1); 
+      
   // echo $query1;
   // echo $query2;
   // $mysqli->query($query1);
   // $mysqli->query($query2);
-  //header("Location:Managers.php");
+  header("Location:Managers.php");
 }
 ?>
 
@@ -100,14 +100,14 @@ echo  $query1="UPDATE login SET name='".$Name."',age='".$Age."',cnic='".$CNIC."'
           <p>Expense Sheet</p>
         </a>
       </li>
-      <li class="active ">
+      <li>
         <a href="./Managers.php">
           <i class="now-ui-icons design_bullet-list-67"></i>
           <p>MANAGERS
             <br> </p>
         </a>
       </li> 
-      <li>
+      <li  class="active ">
         <a href="./SPOs.php">
           <i class="now-ui-icons design_bullet-list-67"></i>
           <p>SPOs
