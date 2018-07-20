@@ -1,8 +1,8 @@
 <?php 
 session_start();
-if(isset($_SESSION['username']))  
+if($_SESSION['type']==='0')  
 {
-header("location:../index.php"); 
+header("location:../admin/Overview.php"); 
 }
 
 if (isset($_POST['login']))

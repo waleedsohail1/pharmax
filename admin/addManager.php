@@ -13,8 +13,7 @@ if(isset($_POST['submit'])) {
   $Province=$_POST["Province"];
   $CellNumber=$_POST["CellNumber"];
   $query1='INSERT INTO login(username, password, type, name, email, firsttime) VALUES("'.$UserName.'","'.$UserName.'","1","'.$Name.'","'.$Email.'","1");';
-  $query2='INSERT INTO managers (username, Manname, age, cnic, CellNumber, HomeAddress, area, city, province) 
-  
+  $query2='INSERT INTO managers (username, Manname, age, cnic, CellNumber, HomeAddress, area, city, province)   
   VALUES ("'.$UserName.'","'.$Name.'","'.$Age.'","'.$CNIC.'","'.$CellNumber.'","'.$HomeAddress.'","'.$Area.'","'.$City.'","'.$Province.'");'; 
   echo $query1;
   echo $query2;
