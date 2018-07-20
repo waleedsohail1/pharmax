@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <?php
 require("../conn.php");
-$sql = "SELECT * FROM location";
+$sql = "SELECT * FROM spo";
 $result = $mysqli->query($sql);
-if ($result->num_rows > 0) 
-// output data of each row
-while($row = $result->fetch_assoc()) {
- 
+
 ?>
 <html>
 
@@ -172,80 +169,7 @@ while($row = $result->fetch_assoc()) {
               <div id="map"></div>
               </div>
               <div class="card-body">
-   <script>
-
-
-function initMap() {
-    var i;
-    var location=[];
-   // var numofRows=<?php //echo //$result->num_rows;?>;
-   location['id']=echo  $row['SPOID'];
-   location['latitude']=echo $row['latitude'];
-   location['longitude']=echo $row['longitude'];
-   
-    <?php  echo .$row['latitude'].$row['longitude'].$row['zoom'] ."<br>";
-    }   
-    ?>
-
-
-
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-
-  var contentString = 
-      '<h3 id="firstHeading" class="firstHeading">SPO: <</h1>';
-
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-    title: 'Uluru (Ayers Rock)'
-  });
-  marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-}
-    //  function initMap() {
-
-
-    //    var myLatLng = {lat: -25.363, lng: 131.044};
-    //     var LatLng2 ={lat: -27.363, lng: 133.044};
-    //     var LatLng3 ={lat: -23.363, lng: 135.044};
-    //    var map = new google.maps.Map(document.getElementById('map'), {
-    //      zoom: 4,
-    //      center: myLatLng
-    //    });
-
-    //    var marker = new google.maps.Marker({
-    //     position: myLatLng,
-    //     map: map,
-    //     title: 'Hello World!'
-    //   });
-    //   var marker1 = new google.maps.Marker({
-    //      position: LatLng2,
-    //      map: map,
-    //      title: 'Hello World1!'
-    //    });
-
-    //    var marker2 = new google.maps.Marker({
-    //      position: LatLng3,
-    //      map: map,
-    //      title: 'Hello World1!1'
-    //    });
-    //    marker.addListener('click', function() {
-    // infowindow.open(map, marker);
-
-    //  }
-   </script>
-   <script async defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx75imHCWBJcOWBbVNmACY9nEXZ4WMqTc&callback=initMap">
-   </script>
+   HERE COMES THE CODE
               </div>
             </div>
           </div>
